@@ -1,6 +1,6 @@
 # READ ME
 
-Talk *'An Adaptive Approach for the Coordination of Autonomous Vehicles at Intersections'* given by [Stefano Mariani](https://smarianimore.github.io) at [WETICE 2021](http://eexposit.perso.univ-pau.fr/wetice/)
+Talk *'About Digital Twins, agents, and multiagent systems: a cross-fertilisation journey'* given by [Stefano Mariani](https://smarianimore.github.io) at [EMAS 2022](https://emas.in.tu-clausthal.de/2022/)
 
 # Credits
 

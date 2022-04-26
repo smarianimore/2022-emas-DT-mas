@@ -8,7 +8,7 @@
     />
 
     <title>Adaptive Intersections @ WETICE 2021</title>
-    <meta content="Talk 'An Adaptive Approach for the Coordination of Autonomous Vehicles at Intersections' given by Stefano Mariani at WETICE 2021" name="description">
+    <meta content="Talk 'About Digital Twins, agents, and multiagent systems: a cross-fertilisation journey' given by Stefano Mariani at EMAS 2022" name="description">
     <meta content="Stefano Mariani" name="author">
 
     <meta content="yes" name="apple-mobile-web-app-capable">
@@ -39,206 +39,188 @@
     <div class="reveal">
       <div class="slides">
 
-        <section data-transition="convex" data-background-image="wetice.png" data-background-opacity=0.25 data-background-size="cover">
-          <p><small> ACEC @ WETICE, 27/10/2021 </small></p>
+        <section data-transition="convex" data-background-image="res/emas-landing-small.png" data-background-opacity=0.25 data-background-size="cover">
+          <p><small> EMAS @ AAMAS, 9-10/5/2022 </small></p>
           <hr>
-          <h3> An Adaptive Approach for the Coordination of Autonomous Vehicles at Intersections </h3>
+          <h3> About Digital Twins, agents, and multiagent systems: a cross-fertilisation journey </h3>
           <hr>
-          <p> Nicholas Glorio, <a href="https://smarianimore.github.io">Stefano Mariani</a>, Giacomo Cabri, Franco Zambonelli </p>
+          <p> <a href="https://smarianimore.github.io">Stefano Mariani</a>*, Marco Picone*, Alessandro Ricci° </p>
           <hr>
-          <p><small><em> Università di Modena e Reggio Emilia </em></small></p>
+          <p>
+            <small><em> *Università di Modena e Reggio Emilia </em></small>
+            </br>
+            <small><em> °Università di Bologna </em></small>
+          </p>
         </section>
 
-        <section data-transition="convex" data-background-image="coop-driving.jpeg" data-background-opacity=0.15 data-background-size="cover">
+        <section data-transition="convex" data-background-image="res/dt-agent.jpg" data-background-opacity=0.15 data-background-size="cover">
           <h3> Motivation & Goal </h3>
           <hr>
           <ul>
-            <li> current research on self-driving mostly about <em>individual</em> vehicles </li>
-            <div class="fragment">
-              <li> but <em>cooperative driving</em> is necessary for collective vehicles in many situations </li>
-              <ul>
-                <li> e.g. crossing intersections </li>
-              </ul>
-            </div>
-            <div class="fragment">
-              <li> hence we study <strong>intersection management</strong> </li>
-              <ul>
-                <li> <strong>compare</strong> state of art approaches </li>
-                <li> propose <strong>adaptive</strong> approach </li>
-              </ul>
-            </div>
+            <li> Digital Twins (<strong>DT</strong>s) emerging as fundamental bricks of <em>Cyber-Physical Systems</em> (CPS) <strong>engineering</strong> </li>
+            <ul><small>
+              <li class="fragment"> but lacking general-purpose model and methodology </li>
+            </small></ul>
+            <li class="fragment"> Multi-Agent Systems (<strong>MAS</strong>) well-established engineering paradigm for <em>intelligent systems</em> </li>
+            <ul><small>
+              <li class="fragment"> but limited success in deployment within CPS </li>
+            </small></ul>
           </ul>
+          <p class="fragment"> <span class="fragment highlight-green">Goal</span>: shed light on <em>responsibilities</em> and <em>opportunities</em> for <strong>synergistic</strong> exploitation! </p>
         </section>
 
-        <section data-transition="convex" data-background-image="coop-driving.jpeg" data-background-opacity=0.15 data-background-size="cover">
+        <section data-transition="convex" data-background-image="res/dt-agent-contexts.png" data-background-opacity=0.15 data-background-size="cover">
           <section data-transition="slide">
-            <h3> Intersection crossing: problem </h3>
+            <h3> Digital Twins </h3>
             <hr>
             <ul>
-              <li> decision making process orchestrating vehicles' actions </li>
-              <ul>
-                <li> <strong>necessary</strong> to achieve own goal </li>
-                <li> <em>competitive</em> access to <em>shared</em> resource </li>
-              </ul>
-              <li class="fragment"> poses 3 challenges </li>
-              <ul>
-                <li class="fragment"> <em>safety</em>: no collisions </li>
-                <li class="fragment"> <em>liveness</em>: right of way for everyone </li>
-                <li class="fragment"> <em>quality</em>: max./min. throughput/delay </li>
-              </ul>
+              <li> <em>virtualisation</em> of real world entities (<strong>p</strong>hysical <strong>a</strong>ssets) </li>
+              <li class="fragment"> <em>faithful</em> digital replicas </li>
+              <li class="fragment"> deeply <em>intertwined</em> with their physical twin </li>
             </ul>
+            <hr>
+            <p style="color:grey"><small><em> Saracco, R.: Digital twins: Bridging physical space and cyberspace. Computer 52(12), 58–64 (2019) </em></small></p>
           </section>
           <section data-transition="slide">
-            <h3> Intersection crossing: solutions </h3>
+            <h3> Dual perspective </h3>
             <hr>
             <ul>
-              <li> <em>today</em>: traffic light, precedence rules </li>
+              <li> DTs as virtual <strong>environment</strong> for MAS </li>
               <ul>
-                <li> safe & inefficient </li>
-                <li> efficient & unsafe </li>
+                <li> abstraction </li>
+                <li> decoupling </li>
+                <li> encapsulation of heterogeneity (data, behaviour, protocols, ...) </li>
               </ul>
               <div class="fragment">
-                <li> <em>tomorrow</em>: thanks to V2I / V2V </li>
+                <li> MAS as <strong>augmentation</strong> for DTs </li>
                 <ul>
-                  <li> reservation </li>
-                  <li> negotiation (e.g. auction) </li>
-                  <li> others (e.g. DCOP, game-theoretic, self-org) </li>
+                  <li> reasoning </li>
+                  <li> decision making </li>
+                  <li> autonomy </li>
                 </ul>
               </div>
             </ul>
           </section>
           <section data-transition="slide">
-            <h3> Selected approaches </h3>
+            <h3> Separation of concerns </h3>
             <hr>
             <ul>
-              <li> precedence-based <strong>right of way</strong> as baseline </li>
+              <li> DTs operate with <em>full knowledge</em> of the <strong>local context</strong> of their associated PA </li>
               <div class="fragment">
-                <li> centralised <strong>reservation-based</strong> as "best in class" </li>
                 <small><ul>
-                  <li> IM receives space-time reservations for intersection cells from approaching vehicles </li>
-                  <li> IM elaborates collision-free trajectories </li>
-                  <li> IM communicates back to vehicles their parameters for crossing (e.g. speed profile) </li>
+                  <li> access to data </li>
+                  <li> available actions </li>
+                  <li> knows nothing about other PAs </li>
                 </ul></small>
               </div>
               <div class="fragment">
-                <li> decentralised <strong>competitive auction</strong> as state-of-art </li>
+                <li> Agents operate with <em>partial knowledge</em> of the <strong>global context</strong> of the application </li>
                 <small><ul>
-                  <li> vehicles bid for space-time slots within the intersection </li>
-                  <li> non-colliding vehicles cross simultaneously </li>
-                  <li> a broker collects bids and ranks them to assign the right of way </li>
+                  <li> application goals </li>
+                  <li> available DTs </li>
+                  <li> knows nothing about how to operate on PA </li>
                 </ul></small>
               </div>
             </ul>
           </section>
-        </section>
-
-        <section data-transition="convex" data-background-image="sumo.png" data-background-opacity=0.10 data-background-size="cover">
           <section data-transition="slide">
-            <h3> Performance comparison </h3>
-            <hr>
-            <ul>
-              <li> SUMO simulations, controlled via TraCi API (<a href="https://www.eclipse.org/sumo/">www.eclipse.org/sumo/</a>) </li>
-              <li> <strong>reservation</strong> based on temporal allocations of the intersection area, divided into a grid of occupancy cells [1] </li>
-              <li> <strong>English auctions</strong> with virtual wallets [2] </li>
-            </ul>
-            <hr>
-            <p style="color:grey"><small><em> [1] Kurt M. Dresner, Peter Stone: A Multiagent Approach to Autonomous Intersection Management. J. Artif. Intell. Res. 31: 591-656 (2008) </em></small></p>
-            <p style="color:grey"><small><em> [2] Dustin Carlino, Stephen D. Boyles, Peter Stone: Auction-based autonomous intersection management. ITSC 2013: 529-534 </em></small></p>
-          </section>
-          <section data-transition="slide">
-            <h3> Simulation settings </h3>
-            <hr>
-            <style>
-              .container{
-                display: flex;
-              }
-              .col{
-                flex: 1;
-              }
-            </style>
-            <div class="container">
-              <div class="col">
-                <img width="512" height="384" align="left" data-src="junction.png">
-              </div>
-              <div class="col">
-                <ul>
-                  <li> single 4-ways junction </li>
-                  <li> 3 lanes for each way </li>
-                  <li> 1 to 4 vehicles/second (traffic condition) </li>
-                  <li> 33/66 % of left turning </li>
-                  <li> 30 runs for each params combination </li>
-                </ul>
-              </div>
-            </div>
-          </section>
-          <section data-transition="slide">
-            <h3> Results </h3>
-            <hr>
-            <style>
-              .container{
-                display: flex;
-              }
-              .col{
-                flex: 1;
-              }
-            </style>
-            <div class="container">
-              <div class="col">
-                <img width="512" height="384" align="left" data-src="throughput_24-05-2021.png">
-              </div>
-              <div class="col">
-                <img width="512" height="384" align="left" data-src="st_dev_head_time_24-05-2021.png">
-              </div>
-            </div>
-            <ul>
-              <li class="fragment"> no approach works best across traffic conditions </li>
-              <li class="fragment"> no approach works best across performance metrics </li>
-            </ul>
+            <img width="200%" height="200%" data-src="res/dt-agent-contexts.png">
+            <p> This separation allows for assigning clear responsibilities during system design! </p>
           </section>
         </section>
 
-        <section data-transition="convex" data-background-image="adaptation.jpg" data-background-opacity=0.25 data-background-size="cover">
+        <section data-transition="convex" data-background-image="res/dt2mas-generic.png" data-background-opacity=0.10 data-background-size="cover">
           <section data-transition="slide">
-            <h3> Adaptive approach </h3>
+            <h3> DTs for agents and MAS </h3>
             <hr>
             <ul>
-              <li class="fragment"> <strong>learn</strong> which approach works best in which traffic condition </li>
-              <li class="fragment"> <strong>apply</strong> the best approach known upon changing conditions </li>
-              <li class="fragment"> both with respect to a <em>target performance metric</em> </li>
-            </ul>
-            <hr>
-            <p class="fragment">
-              <small><em>municipalities already do this!<br>(e.g. traffic lights turned off at night)</em></small>
-            </p>
-          </section>
-          <section data-transition="slide">
-            <h3> Adaptive Intersection Manager (AIM) </h3>
-            <hr>
-            <ol>
+              <li> DTs are akin to <strong>artefacts</strong> of the <em>A&A metamodel</em>... </li>
+              <ul><small>
+                <li> used by agents </li>
+                <li> structuring the environment </li>
+                <li> mediating interaction </li>
+              </small></ul>
               <div class="fragment">
-                <li> learning phase (naive <em>Q-learning</em>*): </li>
-                <small><ol>
-                  <li> randomly select coordination approach $A$ </li>
-                  <li> apply $A$ for a given time $T$ </li>
-                  <li> monitor both traffic conditions $C$ and target performance metric $M$ during $T$ </li>
-                </ol></small>
+                <li> ...but also fundamentally different </li>
+                <ul><small>
+                  <li> bi-directional <strong>synchronisation</strong> with PAs </li>
+                </small></ul>
               </div>
-              <div class="fragment">
-                <li> adaptation phase: </li>
-                <small><ol>
-                  <li> sample traffic condition $C$ </li>
-                  <li> lookup best approach $A$ for $C$ regarding $M$ </li>
-                  <li> apply $A$ until $C \rightarrow C'$ </li>
-                  <li> loop </li>
-                </ol></small>
-              </div>
-            </ol>
+            </ul>
             <hr>
-            <p class="fragment"><small><em> * action = application of $a \in A$ during $T$, reward = $M$ measured during $T$ </em></small></p>
+            <p style="color:grey"><small><em> Omicini, A., Ricci, A., Viroli, M.: Artifacts in the A&A meta-model for multi-agent systems. Autonomous Agents and Multi-Agent Systems 17(3), 432–456 (2008) </em></small></p>
           </section>
           <section data-transition="slide">
-            <h3> Results </h3>
+            <h3> Individual perspective </h3>
             <hr>
+            <img width="100%" height="100%" data-src="res/dt2mas-synergy.png">
+            <p> Each abstraction is best suited for different tasks, that <strong>complement</strong> each other </p>
+          </section>
+          <section data-transition="slide">
+            <h3> System perspective </h3>
+            <hr>
+            <ul>
+              <li> The literature is abundant on what to expect from an <strong>individual</strong> DT </li>
+              <li class="fragment"> Not much is said about <span class="fragment highlight-red">networks of DTs</span> </li>
+              <ul>
+                <li class="fragment"> can DTs be linked together to structure the virtual environment? </li>
+                <li class="fragment"> should such structure be hierarchical? </li>
+                <li class="fragment"> can it be changed dynamically? </li>
+                <li class="fragment"> if so, by the application (agents) or by DTs themselves? </li>
+              </ul>
+            </ul>
+          </section>
+          <section data-transition="slide">
+            <ul>
+              <p><small> <strong>Web of Digital Twins</strong>: application-dependent <em>knowledge graphs</em>, dynamically established amongst DTs depending on CPS dynamics and application goals </small></p>
+              <img width="75%" height="75%" data-src="res/dt2mas-wodt.png">
+              <p style="color:grey"><small><em> Ricci, A., Croatti, A., Mariani, S., Montagna, S., Picone, M.: Web of digital twins. ACM Trans. Internet Technol. (dec 2021). https://doi.org/10.1145/3507909</em></small></p>
+            </ul>
+          </section>
+        </section>
+
+        <section data-transition="convex" data-background-image="res/mas2dt-individual.png" data-background-opacity=0.10 data-background-size="cover">
+          <section data-transition="slide">
+            <h3> Agents and MAS for DTs </h3>
+            <hr>
+            <ul>
+              <li> Agents as enablers of <strong>intelligent</strong> behaviours </li>
+              <ul><small>
+                <li> domain-independent models available (e.g. BDI) </li>
+                <li> encapsulation of (reusable) decision making </li>
+                <li> "as-a-service" perspective orthogonal to applications </li>
+              </small></ul>
+              <div class="fragment">
+                <li> Agents as <strong>orchestrators</strong> and <strong>mediators</strong> </li>
+                <ul><small>
+                  <li> handling DTs lifecyle </li>
+                  <li> monitoring and controlling execution </li>
+                  <li> enacting coordination mechanisms and protocols </li>
+                </small></ul>
+              </div>
+            </ul>
+          </section>
+          <section data-transition="slide">
+            <h3> Individual perspective </h3>
+            <hr>
+            <img width="75%" height="75%" data-src="res/mas2dt-individual.png">
+            <p><small> DTs <em>delegate</em> to agents "intelligent" tasks (reasoning, prediction, ...) that require <em>broader context</em> w.r.t. the local one accessible to DTs </small></p>
+          </section>
+          <section data-transition="slide">
+            <h3> System perspective </h3>
+            <hr>
+            <ul>
+              <li> Again, the literature is lacking about an <span class="fragment highlight-red">open systems</span> perspective: </li>
+              <ul>
+                <li class="fragment"> who is responsible for DTs lifecycle (e.g. binding to PAs, synching, etc.)? </li>
+                <li class="fragment"> is there a "God-like" <em>orchestrator</em>? </li>
+                <li class="fragment"> how can DTs <em>interact</em> in meaningful ways towards application goals? </li>
+                <li class="fragment"> is DTs aggregation akin to service composition enough? </li>
+              </ul>
+            </ul>
+          </section>
+          <section data-transition="slide">
+            <p><small> Agents as <strong>mediators</strong> (left): DTs express the intended interaction semantics (e.g. CFP), delegating to agents the figuring out of <em>interaction sequences</em> </small></p>
             <style>
               .container{
                 display: flex;
@@ -249,46 +231,40 @@
             </style>
             <div class="container">
               <div class="col">
-                <img width="512" height="384" align="left" data-src="th_training_th2.png">
+                <img width="100%" height="100%" data-src="res/mas2dt-system-interaction.png">
               </div>
               <div class="col">
-                <img width="512" height="384" align="left" data-src="sv_training_sv2.png">
+                <img width="100%" height="100%" data-src="res/mas2dt-system-orchestration.png">
               </div>
             </div>
-            <ul>
-              <li class="fragment"> the AIM <em>pursues</em> the best $A$ known for every $C$ </li>
-              <li class="fragment"> the AIM accounts for the target $M$ to optimise </li>
-            </ul>
+            <p><small> Agents as <strong>orchestrators</strong> (right): DTs seamlessly execute while agents take care of <em>"DevOps"</em> (e.g. creation, linking, migration, scaling, disposal, ...) </small></p>
           </section>
         </section>
 
-        <section data-transition="convex" data-background-image="dead-end.jpg" data-background-opacity=0.15 data-background-size="cover">
-          <h3> Conclusion & outlook </h3>
-          <hr>
-          <style>
-            .container{
-              display: flex;
-            }
-            .col{
-              flex: 1;
-            }
-          </style>
-          <div class="container">
-            <div class="col fragment">
-              <ul>
-                <li> adaptive approach to intersection crossing presented </li>
-                <li> simulations validate approach empirically </li>
-                <li> promising results despite simplicity </li>
-              </ul>
-            </div>
-            <div class="col fragment">
-              <ul>
-                <li> extend to more complex measure of $C$ </li>
-                <li> extend to more $m \in M$ at once </li>
-                <li> extend to more sophisticated learning </li>
-              </ul>
-            </div>
-          </div>
+        <section data-transition="convex" data-background-image="res/crossroad.jpg" data-background-opacity=0.15 data-background-size="cover">
+          <section data-transition="slide">
+            <h3> Research Directions 1/2 </h3>
+            <hr>
+            <ul>
+              <li> <strong>Cross-fertilisation</strong> opportunities revolve around two core ideas: </li>
+              <ul><small>
+                <li class="fragment"> adopt <strong>DTs</strong> as the engineering abstraction to structure and encapsulate CPS resources and dynamics </li>
+                <li class="fragment"> adopt <strong>agents</strong> as the engineering abstraction to encapsulate goal-oriented decision-making </li>
+              </small></ul>
+              <li> As decision making <em>depends</em> on the CPS state (and viceversa), synergistic exploitation of agents and DTs is more of a <em>requirement</em> than a nice to have! </li>
+            </ul>
+          </section>
+          <section data-transition="slide">
+            <h3> Research Directions 2/2 </h3>
+            <hr>
+            <ul>
+              <li class="fragment"> Cognitive DTs: <small><em>what if the DT can autonomously evolve through simulation and AI-enabled techniques?</em></small> </li>
+              <li class="fragment"> Anticipatory planning: <small><em>how can DTs and agent cooperate to plan ahead through prediction and what-if analysis?</em></small> </li>
+              <li class="fragment"> Socio-technical systems: <small><em>how about DTs virtualising people and organisation besides PAs?</em></small> </li>
+              <li class="fragment"> Mirror worlds: <small><em>how about digital artefacts reified in our physical world (e.g. holograms)?</em></small> </li>
+              <li class="fragment"> Standardisation & interoperability: <small><em>can DTs standardise agents means of interactions with environments?</em></small> </li>
+            </ul>
+          </section>
         </section>
 
         <section data-transition="convex" data-background-image="confused-meme.png" data-background-opacity=0.25 data-background-size="cover">
@@ -297,7 +273,8 @@
           <hr>
           <p><a href="https://smarianimore.github.io"> Stefano Mariani </a></p>
           <hr>
-          <p><em> Università di Modena e Reggio Emilia </em></p>
+          <h3>Are there questions?</h3>
+          <p>(we hope so 😊)</p>
         </section>
 
       </div>
