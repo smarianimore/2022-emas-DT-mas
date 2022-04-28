@@ -100,6 +100,10 @@
                 </ul>
               </div>
             </ul>
+
+            <aside class="notes">
+              It is this dual perspective that allows to think about cross-fertilisation, that is, taking ideas and mechanisms from DT to agents and viceversa!
+            </aside>
           </section>
           <section data-transition="slide" data-background-image="res/dt-agent-contexts.png" data-background-opacity=0.10 data-background-size="cover">
             <h3> Separation of concerns </h3>
@@ -122,6 +126,10 @@
                 </ul></small>
               </div>
             </ul>
+
+            <aside class="notes">
+              This distinction is key to guide system design by the engineer!
+            </aside>
           </section>
           <section data-transition="slide">
             <img width="200%" height="200%" data-src="res/dt-agent-contexts.png">
@@ -144,17 +152,42 @@
                 <li> ...but also fundamentally different </li>
                 <ul><small>
                   <li> bi-directional <strong>synchronisation</strong> with PAs </li>
+                  <li> <strong>faithful</strong> representation of the (physical) dynamics of the PA </li>
                 </small></ul>
               </div>
             </ul>
             <hr>
             <p style="color:grey"><small><em> Omicini, A., Ricci, A., Viroli, M.: Artifacts in the A&A meta-model for multi-agent systems. Autonomous Agents and Multi-Agent Systems 17(3), 432–456 (2008) </em></small></p>
           </section>
-          <section data-transition="slide">
+          <section data-transition="slide" id="dt2mas-individual">
             <h3> Individual perspective </h3>
             <hr>
-            <img width="100%" height="100%" data-src="res/dt2mas-synergy.png">
-            <p> Each abstraction is best suited for different tasks, that <strong>complement</strong> each other </p>
+            <style>
+              .container{
+                display: flex;
+              }
+              .col{
+                flex: 1;
+              }
+            </style>
+            <div class="container">
+              <div class="col">
+                <img data-src="res/dt2mas-generic.png">
+              </div>
+              <div class="col">
+                </br>
+                </br>
+                <img data-src="res/dt2mas-synergy.png">
+              </div>
+            </div>
+            <p> Agents <em>delegate</em> to DTs tasks requiring knowledge of the <em>local PA context</em> </p>
+            <p><small><a href="#/mas2dt-individual">$$\rightarrow$$</a></small></p>
+
+            <aside class="notes">
+              Applications are engineered around agents, that exploit DTs services.
+
+              The guiding principle based on local/global context is crucial to guide the designer in separating concerns and synergistic exploitation.
+            </aside>
           </section>
           <section data-transition="slide" data-background-image="res/dt2mas-generic.png" data-background-opacity=0.10 data-background-size="cover">
             <h3> System perspective </h3>
@@ -176,6 +209,12 @@
               <img width="75%" height="75%" data-src="res/dt2mas-wodt.png">
               <p style="color:grey"><small><em> Ricci, A., Croatti, A., Mariani, S., Montagna, S., Picone, M.: Web of digital twins. ACM Trans. Internet Technol. (dec 2021). https://doi.org/10.1145/3507909</em></small></p>
             </ul>
+
+            <aside class="notes">
+              Example of WoDT of a smart city and dynamic linking used for traffic control.
+
+              This is only the most natural engineering paradigm from MAS perspective, we don't argue it is the only one!
+            </aside>
           </section>
         </section>
 
@@ -199,12 +238,21 @@
                 </small></ul>
               </div>
             </ul>
+
+            <aside class="notes">
+              Again, this is only the most natural paradigm for us, as MAS engineers, but there could be more!
+            </aside>
           </section>
-          <section data-transition="slide">
+          <section data-transition="slide" id="mas2dt-individual">
             <h3> Individual perspective </h3>
             <hr>
-            <img width="75%" height="75%" data-src="res/mas2dt-individual.png">
+            <img width="65%" height="65%" data-src="res/mas2dt-individual.png">
             <p><small> DTs <em>delegate</em> to agents "intelligent" tasks (reasoning, prediction, ...) that require <em>broader context</em> w.r.t. the local one accessible to DTs </small></p>
+            <p><small><a href="#/dt2mas-individual">$$\leftarrow$$</a></small></p>
+
+            <aside class="notes">
+              W.r.t. to figure dt2mas-individual, here applications revolve around DTs
+            </aside>
           </section>
           <section data-transition="slide" data-background-image="res/mas2dt-individual.png" data-background-opacity=0.10 data-background-size="cover">
             <h3> System perspective </h3>
